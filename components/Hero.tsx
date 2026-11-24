@@ -10,8 +10,11 @@ const translations = {
 
     lead: 'Exploring data, uncertainty and statistical learning.',
 
-    intro:
-      'I am a Computer Science student at the University of Eastern Finland, with a minor in Data Science and Statistics and a professional background in IT. My interests lie in statistical modelling, Bayesian inference and computational methods for understanding uncertainty.',
+    intro: [
+      'I am a Computer Science student at the University of Eastern Finland, with a minor in Data Science and Statistics. My academic interests centre on Bayesian inference, statistical modelling and machine learning, particularly the use of computational methods to understand complex phenomena and uncertainty.',
+
+      'Alongside my studies, I have gained several years of professional experience in IT at the University of Eastern Finland and Enfo. I am currently working on my bachelor’s thesis on Markov Chain Monte Carlo (MCMC) methods, with the longer-term goal of pursuing a career in data science and statistical research.'
+    ],
 
     work: 'Explore my work ↗',
     cv: 'View CV ↗',
@@ -23,8 +26,9 @@ const translations = {
 
     lead: 'Ilmiöiden ymmärtämistä datan avulla.',
 
-    intro:
-      'Opiskelen tietojenkäsittelytiedettä Itä-Suomen yliopistossa, sivuaineenani datatiede ja tilastotiede. Kiinnostukseni painottuu bayesilaiseen päättelyyn, tilastolliseen mallintamiseen ja koneoppimiseen. Minulla on usean vuoden työkokemus IT-alalta, ja tavoitteeni on suunnata urani datatieteen pariin sekä soveltaa tilastollisia menetelmiä käytännön ongelmien ratkaisemiseen ja ilmiöiden ymmärtämiseen.',
+    intro: [
+      'Opiskelen tietojenkäsittelytiedettä Itä-Suomen yliopistossa, sivuaineenani datatiede ja tilastotiede. Kiinnostukseni painottuu bayesilaiseen päättelyyn, tilastolliseen mallintamiseen ja koneoppimiseen. Minulla on usean vuoden työkokemus IT-alalta, ja tavoitteeni on suunnata urani datatieteen pariin sekä soveltaa tilastollisia menetelmiä käytännön ongelmien ratkaisemiseen ja ilmiöiden ymmärtämiseen.'
+    ],
 
     work: 'Tutustu projekteihini ↗',
     cv: 'Katso CV ↗',
@@ -99,9 +103,11 @@ export default function Hero() {
         )}
       </p>
 
-      <p className="intro">
-        {t.intro}
-      </p>
+      {t.intro.map((paragraph, index) => (
+        <p className="intro" key={index}>
+          {paragraph}
+        </p>
+      ))}
 
       <div className="actions">
 
