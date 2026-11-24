@@ -24,7 +24,7 @@ const translations = {
     lead: 'Ilmiöiden ymmärtämistä datan avulla.',
 
     intro:
-      'Opiskelen tietojenkäsittelytiedettä Itä-Suomen yliopistossa, sivuaineenani datatiede ja tilastotiede. Minua kiinnostaa erityisesti se, miten tilastollisten ja laskennallisten menetelmien avulla voidaan ymmärtää erilaisia ilmiöitä ja tehdä päätelmiä datasta. Minulla on usean vuoden työkokemus IT-alalta, ja tulevaisuudessa haluan suunnata urani datatieteen pariin. Tällä hetkellä syvennyn opinnoissani erityisesti bayesilaiseen päättelyyn, tilastolliseen mallintamiseen ja koneoppimiseen.',
+      'Opiskelen tietojenkäsittelytiedettä Itä-Suomen yliopistossa, sivuaineenani datatiede ja tilastotiede. Kiinnostukseni painottuu bayesilaiseen päättelyyn, tilastolliseen mallintamiseen ja koneoppimiseen. Minulla on usean vuoden työkokemus IT-alalta, ja tavoitteeni on suunnata urani datatieteen pariin sekä soveltaa tilastollisia menetelmiä käytännön ongelmien ratkaisemiseen ja ilmiöiden ymmärtämiseen.',
 
     work: 'Tutustu projekteihini ↗',
     cv: 'Katso CV ↗',
