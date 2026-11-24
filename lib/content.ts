@@ -149,7 +149,7 @@ export const diabetesResults = {
 export const education = {
   university: 'University of Eastern Finland',
   degree: 'B.Sc. in Computer Science',
-  period: '2021 — Expected March 2027',
+  period: 'Expected graduation: March 2027',
 
   minor: 'Data Science and Statistics',
   minorCredits: '60 ECTS programme',
