@@ -1,9 +1,9 @@
 export const profile = {
   name: 'Amin Mahad',
-  email: '',
-  github: '',
-  linkedin: '',
-  cv: ''
+  email: 'aminmahadd@gmail.com',
+  github: 'https://github.com/Aminos24',
+  linkedin: 'https://www.linkedin.com/in/amin-m-75987b1a9/',
+  cv: '/documents/Amin_Mahad_Portfolio_CV.pdf'
 };
 
 export const projects = [
