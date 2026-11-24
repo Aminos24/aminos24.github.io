@@ -798,3 +798,69 @@ footer {
   }
 
 }
+
+/* ========================================
+   INTRODUCTION LANGUAGE SWITCH
+======================================== */
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.language-switch button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  padding: 5px 3px;
+  cursor: pointer;
+
+  transition: color 0.2s;
+}
+
+.language-switch button.active {
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom: 1px solid var(--accent);
+}
+
+.language-switch button:hover {
+  color: var(--accent);
+}
+
+.language-divider {
+  color: var(--line);
+  font-size: 12px;
+}
+
+@media (max-width: 650px) {
+
+  .hero-top {
+    gap: 12px;
+  }
+
+  .hero-top .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+
+  .language-switch {
+    gap: 5px;
+  }
+
+}

@@ -1,4 +1,5 @@
 
+import Hero from '../components/Hero';
 import Link from 'next/link';
 import {
   profile,
@@ -12,54 +13,7 @@ export default function Home() {
     <>
       {/* INTRODUCTION */}
 
-      <section className="hero" id="about">
-
-        <div className="eyebrow">
-          PERSONAL PORTFOLIO / FINLAND
-        </div>
-
-        <h1>Amin Mahad<span>.</span></h1>
-
-        <p className="lead">
-          Exploring data, uncertainty
-          <br className="desktop" />
-          {' '}and statistical learning.
-        </p>
-
-        <p className="intro">
-          I am a Computer Science student at the
-          University of Eastern Finland, with a minor
-          in Data Science and Statistics and a
-          professional background in IT. My interests
-          lie in statistical modelling, Bayesian
-          inference and computational methods for
-          understanding uncertainty.
-        </p>
-
-        <div className="actions">
-
-          <a className="primary" href="#work">
-            Explore my work ↗
-          </a>
-
-          {profile.cv ? (
-            <a
-              className="secondary"
-              href={profile.cv}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View CV ↗
-            </a>
-          ) : (
-            <a className="secondary" href="#experience">
-              Experience ↓
-            </a>
-          )}
-
-        </div>
-
-      </section>
+      <Hero />
 
 
       {/* PROJECTS & RESEARCH */}
