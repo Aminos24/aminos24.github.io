@@ -1,3 +1,4 @@
+
 export const profile = {
   name: 'Amin Mahad',
   email: 'aminmahadd@gmail.com',
@@ -10,14 +11,15 @@ export const projects = [
   {
     slug: 'mcmc',
     number: '01',
-    category: 'Research · In progress',
-    title: 'MCMC Algorithms and Bayesian Inference',
-    summary: 'Exploring computational methods for posterior inference and the reliability of Monte Carlo estimates.',
+    category: 'Bachelor’s thesis · In progress',
+    title: 'Markov Chain Monte Carlo (MCMC) Methods',
+    summary: 'Exploring the foundations, historical development, applications and future directions of Markov Chain Monte Carlo methods.',
 
     methods: [
       'MCMC',
-      'Hamiltonian Monte Carlo',
-      'Bayesian inference'
+      'Bayesian inference',
+      'Computational statistics',
+      'Monte Carlo simulation'
     ],
 
     pdf: '',
@@ -25,15 +27,23 @@ export const projects = [
     sections: [
       [
         'Research focus',
-        'My bachelor’s thesis explores Markov chain Monte Carlo methods for Bayesian inference, with particular interest in Hamiltonian Monte Carlo.'
+        'My bachelor’s thesis explores the theoretical foundations and historical development of Markov Chain Monte Carlo methods, with an emphasis on their role in computational statistics and Bayesian inference.'
       ],
       [
-        'Methodology',
-        'The work examines convergence diagnostics, effective sample size, warm-up and divergent transitions.'
+        'Methods and comparative analysis',
+        'The thesis examines different MCMC algorithms, comparing their underlying principles, computational characteristics, strengths and limitations.'
+      ],
+      [
+        'Applications',
+        'The thesis explores practical applications of MCMC methods across different fields, highlighting their role in statistical modelling, probabilistic inference and solving complex computational problems.'
+      ],
+      [
+        'Future directions',
+        'The study discusses the ongoing development of MCMC methods, emerging research directions and their evolving role in computational statistics and machine learning.'
       ],
       [
         'Status',
-        'Research in progress. Final results and the thesis link will be added after completion.'
+        'Bachelor’s thesis in progress. The completed thesis will be made available upon publication.'
       ]
     ]
   },
@@ -162,7 +172,7 @@ export const education = {
   ],
 
   thesis: {
-    title: 'Markov Chain Monte Carlo (MCMC) methods',
+    title: 'Markov Chain Monte Carlo (MCMC) Methods',
     status: 'Bachelor’s thesis · In progress',
     href: '/projects/mcmc'
   }
