@@ -1,7 +1,147 @@
-export const profile = { name: 'Amin Mahad', email: '', github: '', linkedin: '', cv: '' };
+export const profile = {
+  name: 'Amin Mahad',
+  email: '',
+  github: '',
+  linkedin: '',
+  cv: ''
+};
+
 export const projects = [
- {slug:'mcmc', number:'01', category:'Research · In progress', title:'MCMC Algorithms and Bayesian Inference', summary:'Exploring computational methods for posterior inference and the reliability of Monte Carlo estimates.', methods:['MCMC','Hamiltonian Monte Carlo','Bayesian inference'], sections:[['Research focus','My bachelor’s thesis explores Markov chain Monte Carlo methods for Bayesian inference, with particular interest in Hamiltonian Monte Carlo.'],['Methodology','The work examines convergence diagnostics, effective sample size, warm-up and divergent transitions.'],['Status','Research in progress. Final results and the thesis link will be added after completion.']]},
- {slug:'quantum-risk',number:'02',category:'Junction 2026 · Independent project',title:'Quantum-Enhanced Bayesian Risk Estimation',summary:'Combining Bayesian financial risk modelling with quantum amplitude estimation.',methods:['R','Stan','Python','Qiskit'],sections:[['Objective','Estimate downside risk for an equally weighted portfolio of Nokia, Nordea and Sampo.'],['Approach','A classical Bayesian workflow estimates Value at Risk and Conditional Value at Risk. Iterative quantum amplitude estimation estimates the probability of falling below a risk threshold.'],['Results','The project produced an estimated 95% VaR of −2.35% and CVaR of −2.97%. Quantum amplitude estimation returned a tail probability of 0.04972 against a reference probability of 0.05. These are project-specific estimates, not evidence of quantum advantage.']]},
- {slug:'diabetes',number:'03',category:'Academic project · Statistical modelling',title:'Bayesian Diabetes Risk Modelling',summary:'Comparing linear and nonlinear Bayesian logistic regression models using survey data.',methods:['R','brms','Logistic regression','LOO'],sections:[['Objective','Explore associations between diabetes status and blood pressure, BMI and age using BRFSS 2015 survey data.'],['Approach','Compare linear logistic regression with a model using splines for BMI and age.'],['Results','In the project evaluation, accuracy was 0.709 for the linear model and 0.712 for the nonlinear model. The balanced dataset and evaluation design limit generalisation to clinical populations.']]}
+  {
+    slug: 'mcmc',
+    number: '01',
+    category: 'Research · In progress',
+    title: 'MCMC Algorithms and Bayesian Inference',
+    summary: 'Exploring computational methods for posterior inference and the reliability of Monte Carlo estimates.',
+
+    methods: [
+      'MCMC',
+      'Hamiltonian Monte Carlo',
+      'Bayesian inference'
+    ],
+
+    pdf: '',
+
+    sections: [
+      [
+        'Research focus',
+        'My bachelor’s thesis explores Markov chain Monte Carlo methods for Bayesian inference, with particular interest in Hamiltonian Monte Carlo.'
+      ],
+      [
+        'Methodology',
+        'The work examines convergence diagnostics, effective sample size, warm-up and divergent transitions.'
+      ],
+      [
+        'Status',
+        'Research in progress. Final results and the thesis link will be added after completion.'
+      ]
+    ]
+  },
+
+  {
+    slug: 'quantum-risk',
+    number: '02',
+    category: 'Junction 2026 · Independent project',
+    title: 'Quantum-Enhanced Bayesian Risk Estimation',
+    summary: 'Combining Bayesian financial risk modelling with quantum amplitude estimation.',
+
+    methods: [
+      'R',
+      'Stan',
+      'Python',
+      'Qiskit'
+    ],
+
+    pdf: '',
+
+    sections: [
+      [
+        'Objective',
+        'Estimate downside risk for an equally weighted portfolio of Nokia, Nordea and Sampo.'
+      ],
+      [
+        'Approach',
+        'A classical Bayesian workflow estimates Value at Risk and Conditional Value at Risk. Iterative quantum amplitude estimation estimates the probability of falling below a risk threshold.'
+      ],
+      [
+        'Results',
+        'The project produced an estimated 95% VaR of −2.35% and CVaR of −2.97%. Quantum amplitude estimation returned a tail probability of 0.04972 against a reference probability of 0.05. These are project-specific estimates, not evidence of quantum advantage.'
+      ]
+    ]
+  },
+
+  {
+    slug: 'diabetes',
+    number: '03',
+    category: 'Academic project · Bayesian Data Analysis',
+    title: 'Bayesian Diabetes Risk Modelling',
+    summary: 'A comparative study of linear and nonlinear Bayesian logistic regression models using BRFSS 2015 health survey data.',
+
+    methods: [
+      'R',
+      'brms',
+      'Stan',
+      'MCMC',
+      'Bayesian inference',
+      'LOO-CV'
+    ],
+
+    pdf: '/documents/bayesian-diabetes-report.pdf',
+
+    sections: [
+      [
+        'Objective',
+        'Investigate associations between diabetes status, BMI, age and high blood pressure using a balanced dataset of 70,692 observations.'
+      ],
+      [
+        'Methodology',
+        'Compare linear and spline-based Bayesian logistic regression models using weakly informative priors and NUTS sampling. Model assessment includes convergence diagnostics, posterior predictive checks and prior sensitivity analysis.'
+      ],
+      [
+        'Results',
+        'The nonlinear model achieved an in-sample classification accuracy of 71.2%, compared with 70.9% for the linear model. LOO-CV favoured the nonlinear model, while the linear model offered greater simplicity and robustness to prior choice.'
+      ]
+    ]
+  }
 ];
-export const experience = [{role:'IT Service Desk Technician',org:'University of Eastern Finland',date:'2022–2026',description:'Technical support, troubleshooting, identity and access management, and workstation services across university IT environments.'},{role:'Specialist, Workstation',org:'Enfo',date:'Summer 2024',description:'Workstation support, service requests and Microsoft-based enterprise environments.'},{role:'Course Assistant',org:'University of Eastern Finland',date:'2022',description:'Supported teaching activities for Introduction to Blockchain.'}];
+
+export const experience = [
+  {
+    role: 'IT Service Desk Technician',
+    org: 'University of Eastern Finland',
+    date: '2022–2026',
+    description: 'Technical support, troubleshooting, identity and access management, and workstation services across university IT environments.'
+  },
+
+  {
+    role: 'Specialist, Workstation',
+    org: 'Enfo',
+    date: 'Summer 2024',
+    description: 'Workstation support, service requests and Microsoft-based enterprise environments.'
+  },
+
+  {
+    role: 'Course Assistant',
+    org: 'University of Eastern Finland',
+    date: '2022',
+    description: 'Supported teaching activities for Introduction to Blockchain.'
+  }
+];
+
+export const diabetesResults = {
+  observations: 70692,
+
+  linearAccuracy: 70.9,
+  nonlinearAccuracy: 71.2,
+
+  linearElpd: -40164.1,
+  nonlinearElpd: -39711.7,
+
+  elpdDifference: 452.4,
+
+  chains: 4,
+  iterations: 2000,
+  warmup: 1000,
+
+  paretoK: '< 0.7'
+};
