@@ -145,3 +145,25 @@ export const diabetesResults = {
 
   paretoK: '< 0.7'
 };
+
+export const education = {
+  university: 'University of Eastern Finland',
+  degree: 'B.Sc. in Computer Science',
+  period: '2021 — Expected March 2027',
+
+  minor: 'Data Science and Statistics',
+  minorCredits: '60 ECTS programme',
+
+  academicFocus: [
+    'Bayesian Statistics',
+    'Computational Statistics',
+    'Probabilistic Inference',
+    'Time Series Analysis'
+  ],
+
+  thesis: {
+    title: 'Markov Chain Monte Carlo (MCMC) methods',
+    status: 'Bachelor’s thesis · In progress',
+    href: '/projects/mcmc'
+  }
+};

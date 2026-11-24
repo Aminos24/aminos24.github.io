@@ -1,3 +1,4 @@
+
 /* ========================================
    COLOR THEMES
 ======================================== */
@@ -255,7 +256,7 @@ section {
 }
 
 /* ========================================
-   EDUCATION & RESEARCH
+   RESEARCH INTERESTS
 ======================================== */
 
 .split {
@@ -266,6 +267,139 @@ section {
 
 .split h3:not(:first-child) {
   margin-top: 26px;
+}
+
+/* ========================================
+   EDUCATION
+======================================== */
+
+.education-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 32px;
+  border-radius: 3px;
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+/* ========================================
+   UNIVERSITY LOGO
+======================================== */
+
+.university-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.university-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ========================================
+   UNIVERSITY INFORMATION
+======================================== */
+
+.education-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.education-info h3 {
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.education-degree {
+  color: var(--fg);
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.education-period {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.education-minor {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 12px 0 0;
+}
+
+/* ========================================
+   ACADEMIC FOCUS & THESIS
+======================================== */
+
+.education-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  margin-top: 28px;
+  padding-top: 26px;
+
+  border-top: 1px solid var(--line);
+}
+
+.education-label {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.focus-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.focus-list li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+.education-thesis h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 1.35;
+  color: var(--fg);
+  margin: 0;
+}
+
+.education-thesis p {
+  font-size: 13px;
+  margin: 8px 0 12px;
+}
+
+.education-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
 }
 
 /* ========================================
@@ -510,6 +644,7 @@ footer {
 ======================================== */
 
 @media (max-width: 650px) {
+
   .header,
   main,
   footer {
@@ -536,6 +671,10 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .split {
+    gap: 28px;
+  }
+
   .job {
     flex-direction: column;
     gap: 0;
@@ -548,9 +687,54 @@ footer {
   footer {
     flex-direction: column;
   }
+
+  /* Education */
+
+  .education-card {
+    padding: 22px;
+  }
+
+  .education-header {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .university-mark {
+    width: 80px;
+    height: 80px;
+    padding: 0;
+  }
+
+  .education-info h3 {
+    font-size: 23px;
+  }
+
+  .education-degree {
+    font-size: 15px;
+  }
+
+  .education-period {
+    font-size: 12px;
+  }
+
+  .education-minor {
+    font-size: 13px;
+  }
+
+  .education-details {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .education-thesis {
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
 }
 
 @media (max-width: 600px) {
+
   .results-grid {
     gap: 10px;
   }
@@ -584,12 +768,19 @@ footer {
   .model-comparison h3 {
     font-size: 22px;
   }
+
 }
 
 @media (max-width: 360px) {
+
   .results-grid {
     grid-template-columns: 1fr;
   }
+
+  .education-header {
+    flex-direction: column;
+  }
+
 }
 
 /* ========================================
@@ -597,6 +788,7 @@ footer {
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -604,4 +796,5 @@ footer {
   * {
     transition: none !important;
   }
+
 }
