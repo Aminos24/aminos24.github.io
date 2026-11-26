@@ -24,7 +24,7 @@ export default function QuantumResults() {
     <h3>Convergence diagnostics</h3><div className="model-comparison"><table className="results-table"><thead><tr><th>Parameter</th><th>ESS (n_eff)</th><th>R-hat</th></tr></thead><tbody>{[['μ','12,291'],['σ','1,976'],['lp__','2,677']].map(([p, ess]) => <tr key={p}><td>{p}</td><td>{ess}</td><td>1.00</td></tr>)}</tbody></table></div><p>R-hat values are shown at the precision reported by Stan.</p>
     <h3>Posterior predictive distribution</h3><Plot n={4} alt="Posterior predictive returns with dashed VaR threshold" />
     <h3>Classical vs. quantum estimation</h3><Plot n={6} alt="Classical reference 0.05000 and QAE estimate 0.04972" /><Metrics items={ [['Absolute error','0.00028'],['Relative error','0.56%']] } />
-    <h3>Theoretical query complexity</h3><Metrics items={ [['Classical Monte Carlo','O(1/ε²)'],['Quantum amplitude estimation','O(1/ε)']] } /><Plot n={5} alt="Theoretical scaling of classical Monte Carlo and QAE" /><p>Theoretical scaling, not measured computational performance.</p>
+    <h3>Theoretical query complexity</h3><Metrics items={ [['Classical Monte Carlo','O(1/ε²)'],['Quantum amplitude estimation','O(1/ε)']] } /><Plot n={5} alt="Theoretical scaling of classical Monte Carlo and QAE" /><p>Numerical comparison of classical and quantum query complexity across different precision levels.</p>
     <h3>Key finding</h3><p>The quantum estimate closely matched the classical reference. A practical quantum advantage was not established.</p>
   </div>;
 }

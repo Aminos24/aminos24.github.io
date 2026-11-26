@@ -57,7 +57,7 @@ export const projects = [
   {
     slug: 'quantum-risk',
     number: '02',
-    category: 'Junction 2026 Quantum hackathon',
+    category: 'Junction 2026 Hackathon · OP Quantum Finance Challenge',
     title: 'Quantum-Enhanced Bayesian Risk Estimation',
 
     summary: 'Combining Bayesian financial risk modelling with quantum amplitude estimation.',
@@ -77,7 +77,7 @@ export const projects = [
     sections: [
       [
         'Objective',
-        'Explore the potential of quantum amplitude estimation in Bayesian financial risk assessment and compare it with classical probability estimation.'
+        'I developed this project independently during the Junction 2026 hackathon as part of the OP Quantum Finance Challenge. The objective was to explore the potential of quantum amplitude estimation in Bayesian financial risk assessment and compare it with classical probability estimation.'
       ],
 
       [
