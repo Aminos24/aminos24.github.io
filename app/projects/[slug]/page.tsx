@@ -1,13 +1,22 @@
+
 import { projects } from '../../../lib/content';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+
 import ProjectResults from '../../../components/ProjectResults';
+
+import QuantumResults, {
+  QuantumPortfolio,
+  QuantumMethodology
+} from '../../../components/QuantumResults';
+
 
 export function generateStaticParams() {
   return projects.map(p => ({
     slug: p.slug
   }));
 }
+
 
 export async function generateMetadata({
   params
@@ -22,6 +31,7 @@ export async function generateMetadata({
     description: p?.summary
   };
 }
+
 
 export default async function Project({
   params
@@ -61,7 +71,30 @@ export default async function Project({
 
           <h2>{title}</h2>
 
-          <p>{body}</p>
+          {body && <p>{body}</p>}
+
+          {/* Quantum portfolio composition */}
+
+          {p.slug === 'quantum-risk' &&
+            title === 'Objective' && (
+              <QuantumPortfolio />
+            )}
+
+          {/* Quantum methodology */}
+
+          {p.slug === 'quantum-risk' &&
+            title === 'Methodology' && (
+              <QuantumMethodology />
+            )}
+
+          {/* Quantum risk project results */}
+
+          {p.slug === 'quantum-risk' &&
+            title === 'Results' && (
+              <QuantumResults />
+            )}
+
+          {/* Diabetes project results */}
 
           {p.slug === 'diabetes' &&
             title === 'Results' && (
@@ -70,6 +103,8 @@ export default async function Project({
 
         </section>
       ))}
+
+      {/* Project documentation */}
 
       {p.pdf && (
         <section>

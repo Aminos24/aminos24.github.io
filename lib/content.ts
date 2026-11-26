@@ -7,12 +7,18 @@ export const profile = {
   cv: '/documents/Amin_Mahad_Portfolio_CV.pdf'
 };
 
+
+/* ========================================
+   PROJECTS
+======================================== */
+
 export const projects = [
   {
     slug: 'mcmc',
     number: '01',
     category: 'Bachelor’s thesis · In progress',
     title: 'Markov Chain Monte Carlo (MCMC) Methods',
+
     summary: 'Exploring the foundations, historical development, applications and future directions of Markov Chain Monte Carlo methods.',
 
     methods: [
@@ -51,15 +57,19 @@ export const projects = [
   {
     slug: 'quantum-risk',
     number: '02',
-    category: 'Junction 2026 · Independent project',
+    category: 'Junction 2026 Quantum hackathon',
     title: 'Quantum-Enhanced Bayesian Risk Estimation',
+
     summary: 'Combining Bayesian financial risk modelling with quantum amplitude estimation.',
 
     methods: [
       'R',
       'Stan',
       'Python',
-      'Qiskit'
+      'Qiskit',
+      'Bayesian inference',
+      'MCMC',
+      'Quantum computing'
     ],
 
     pdf: '',
@@ -67,15 +77,17 @@ export const projects = [
     sections: [
       [
         'Objective',
-        'Estimate downside risk for an equally weighted portfolio of Nokia, Nordea and Sampo.'
+        'Explore the potential of quantum amplitude estimation in Bayesian financial risk assessment and compare it with classical probability estimation.'
       ],
+
       [
-        'Approach',
-        'A classical Bayesian workflow estimates Value at Risk and Conditional Value at Risk. Iterative quantum amplitude estimation estimates the probability of falling below a risk threshold.'
+        'Methodology',
+        'Bayesian risk modelling using MCMC and the No-U-Turn Sampler (NUTS) in Stan, combined with Iterative Quantum Amplitude Estimation (IQAE) in Qiskit.'
       ],
+
       [
         'Results',
-        'The project produced an estimated 95% VaR of −2.35% and CVaR of −2.97%. Quantum amplitude estimation returned a tail probability of 0.04972 against a reference probability of 0.05. These are project-specific estimates, not evidence of quantum advantage.'
+        'Posterior distributions, convergence diagnostics, financial risk estimates and classical versus quantum probability estimation.'
       ]
     ]
   },
@@ -85,6 +97,7 @@ export const projects = [
     number: '03',
     category: 'Academic project · Bayesian Data Analysis',
     title: 'Bayesian Diabetes Risk Modelling',
+
     summary: 'A comparative study of linear and nonlinear Bayesian logistic regression models using BRFSS 2015 health survey data.',
 
     methods: [
@@ -115,6 +128,11 @@ export const projects = [
   }
 ];
 
+
+/* ========================================
+   PROFESSIONAL EXPERIENCE
+======================================== */
+
 export const experience = [
   {
     role: 'IT Service Desk Technician',
@@ -138,6 +156,103 @@ export const experience = [
   }
 ];
 
+
+/* ========================================
+   QUANTUM RISK PROJECT RESULTS
+======================================== */
+
+export const quantumResults = {
+
+  portfolio: [
+    'Nokia',
+    'Nordea',
+    'Sampo'
+  ],
+
+  portfolioWeights: [
+    1 / 3,
+    1 / 3,
+    1 / 3
+  ],
+
+  confidenceLevel: 0.95,
+
+  /* MCMC configuration */
+
+  chains: 4,
+  iterations: 4000,
+  warmup: 1000,
+  posteriorDraws: 12000,
+  seed: 123,
+
+  /* Financial risk estimates */
+
+  var95: -2.328321,
+  cvar95: -2.928305,
+
+  /* Convergence diagnostics */
+
+  diagnostics: [
+    {
+      parameter: 'μ',
+      ess: 12291,
+      rhat: 1.00
+    },
+    {
+      parameter: 'σ',
+      ess: 1976,
+      rhat: 1.00
+    },
+    {
+      parameter: 'lp__',
+      ess: 2677,
+      rhat: 1.00
+    }
+  ],
+
+  /* Probability estimation */
+
+  classicalProbability: 0.05000,
+  quantumProbability: 0.04972,
+
+  absoluteError: 0.00028,
+  relativeError: 0.56,
+
+  /* Earlier report estimates */
+
+  posteriorMean: 0.000661,
+  posteriorVolatility: 0.014697,
+
+  confidenceInterval: {
+    lower: 0.04804,
+    upper: 0.05140
+  },
+
+  /* Theoretical query complexity */
+
+  classicalComplexity: 'O(1/ε²)',
+  quantumComplexity: 'O(1/ε)',
+
+  samplingAlgorithm: 'NUTS',
+  quantumAlgorithm: 'Iterative Quantum Amplitude Estimation',
+
+  /* Original R visualisations */
+
+  plots: {
+    portfolioReturns: '/images/junction/junction_plot_1.png',
+    posteriorMu: '/images/junction/junction_plot_2.png',
+    posteriorSigma: '/images/junction/junction_plot_3.png',
+    posteriorPredictive: '/images/junction/junction_plot_4.png',
+    theoreticalSpeedup: '/images/junction/junction_plot_5.png',
+    classicalVsQuantum: '/images/junction/junction_plot_6.png'
+  }
+};
+
+
+/* ========================================
+   DIABETES PROJECT RESULTS
+======================================== */
+
 export const diabetesResults = {
   observations: 70692,
 
@@ -155,6 +270,11 @@ export const diabetesResults = {
 
   paretoK: '< 0.7'
 };
+
+
+/* ========================================
+   EDUCATION
+======================================== */
 
 export const education = {
   university: 'University of Eastern Finland',
