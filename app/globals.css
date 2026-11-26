@@ -455,7 +455,7 @@ footer {
 }
 
 .detail h1 {
-  font-size: clamp(38px, 6vw, 64px);
+  font-size: clamp(28px, 4vw, 40px);
   letter-spacing: -1px;
 }
 
@@ -1210,3 +1210,80 @@ body:has(.home) .header .brand {
 .junction-results h3 {margin-top:28px;}
 .junction-results .results-grid {margin:16px 0 28px;}
 @media(max-width:650px){.junction-pair,.junction-portfolio{grid-template-columns:1fr;}}
+
+/* ========================================
+   PORTFOLIO ALLOCATION
+======================================== */
+
+.portfolio-allocation {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 32px;
+  margin: 28px 0 36px;
+  color: var(--fg);
+}
+
+.portfolio-donut {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.portfolio-donut svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portfolio-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.portfolio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.portfolio-stock-name {
+  flex: 1;
+}
+
+.portfolio-weight {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 550px) {
+  .portfolio-allocation {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .portfolio-donut {
+    max-width: 260px;
+  }
+
+  .portfolio-legend {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.detail .lead {
+  font-size: 24px;
+  line-height: 1.6;
+}
+

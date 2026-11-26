@@ -26,18 +26,110 @@ function Metrics({ items }: { items: [string, string][] }) {
   );
 }
 
-export function QuantumPortfolio() {
+function SectionDivider() {
   return (
-    <div className="junction-portfolio">
-      {['Nokia', 'Nordea', 'Sampo'].map(name => (
-        <div className="metric-card" key={name}>
-          <span className="metric-label">{name}</span>
-          <strong className="metric-value">33.3%</strong>
-        </div>
-      ))}
+    <hr
+      style={{
+        border: 0,
+        borderTop: '1px solid var(--line)',
+        margin: '40px 0'
+      }}
+    />
+  );
+}
+
+
+/* ========================================
+   PORTFOLIO
+======================================== */
+
+export function QuantumPortfolio() {
+  const stocks = [
+    { name: 'Nokia', color: '#5285bd' },
+    { name: 'Nordea', color: '#509b83' },
+    { name: 'Sampo', color: '#c69b50' }
+  ];
+
+  const circumference = 2 * Math.PI * 72;
+  const segment = circumference / 3;
+
+  return (
+    <div className="portfolio-allocation">
+
+      <div className="portfolio-donut">
+        <svg
+          viewBox="0 0 200 200"
+          role="img"
+          aria-label="Equal-weight portfolio of Nokia, Nordea and Sampo"
+        >
+          {stocks.map((stock, i) => (
+            <circle
+              key={stock.name}
+              cx="100"
+              cy="100"
+              r="72"
+              fill="none"
+              stroke={stock.color}
+              strokeWidth="40"
+              strokeDasharray={`${segment} ${circumference - segment}`}
+              strokeDashoffset={-i * segment}
+              transform="rotate(-90 100 100)"
+            />
+          ))}
+
+          <text
+            x="100"
+            y="97"
+            textAnchor="middle"
+            fontSize="25"
+            fontWeight="600"
+            fill="currentColor"
+          >
+            3
+          </text>
+
+          <text
+            x="100"
+            y="117"
+            textAnchor="middle"
+            fontSize="12"
+            fill="currentColor"
+          >
+            Stocks
+          </text>
+        </svg>
+      </div>
+
+      <div className="portfolio-legend">
+        {stocks.map(stock => (
+          <div
+            className="portfolio-legend-row"
+            key={stock.name}
+          >
+            <span
+              className="portfolio-dot"
+              style={{ backgroundColor: stock.color }}
+            />
+
+            <span className="portfolio-stock-name">
+              {stock.name}
+            </span>
+
+            <strong className="portfolio-weight">
+              33.33%
+            </strong>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }
+
+
+/* ========================================
+   METHODOLOGY
+======================================== */
 
 export function QuantumMethodology() {
   return (
@@ -50,10 +142,11 @@ export function QuantumMethodology() {
           'Historical stock prices',
           'Daily portfolio returns',
           'Bayesian normal model: rₜ ~ N(μ, σ²)',
-          'MCMC / NUTS (Stan)',
+          'MCMC / NUTS (R & Stan)',
           'Posterior predictive simulation',
           'VaR & CVaR',
-          'QAE (Qiskit)'
+          'Reference probability encoding',
+          'Quantum amplitude estimation (Python & Qiskit)'
         ].map((step, i) => (
           <div key={step}>
             {i > 0 && <span aria-hidden="true">↓</span>}
@@ -73,6 +166,11 @@ export function QuantumMethodology() {
   );
 }
 
+
+/* ========================================
+   RESULTS
+======================================== */
+
 export default function QuantumResults() {
   return (
     <div className="project-results junction-results">
@@ -81,7 +179,7 @@ export default function QuantumResults() {
           BAYESIAN RISK MODELLING
       ======================================== */}
 
-      <h3>Bayesian Risk Modelling</h3>
+      <h3>Bayesian Risk Modelling (R &amp; Stan)</h3>
 
       <Metrics items={[
         ['Value-at-Risk (95%)', '−2.33%'],
@@ -98,6 +196,7 @@ export default function QuantumResults() {
       <h3>Posterior distributions</h3>
 
       <div className="junction-pair">
+
         <Plot
           n={2}
           alt="Posterior distribution of mean return"
@@ -107,12 +206,14 @@ export default function QuantumResults() {
           n={3}
           alt="Posterior distribution of volatility"
         />
+
       </div>
 
       <h3>Convergence diagnostics</h3>
 
       <div className="model-comparison">
         <table className="results-table">
+
           <thead>
             <tr>
               <th>Parameter</th>
@@ -134,12 +235,9 @@ export default function QuantumResults() {
               </tr>
             ))}
           </tbody>
+
         </table>
       </div>
-
-      <p>
-        R-hat values are shown at the precision reported by Stan.
-      </p>
 
       <h3>Posterior predictive distribution</h3>
 
@@ -150,77 +248,24 @@ export default function QuantumResults() {
 
 
       {/* ========================================
-          ORIGINAL QUANTUM RESULTS
+          QUANTUM AMPLITUDE ESTIMATION
       ======================================== */}
 
-      <hr style={{
-        border: 0,
-        borderTop: '1px solid var(--line)',
-        margin: '40px 0'
-      }} />
+      <SectionDivider />
 
-      <h3>Quantum Amplitude Estimation</h3>
+      <h3>Quantum Amplitude Estimation (Python &amp; Qiskit)</h3>
 
       <p>
-        Original results from the Junction 2026
-        OP Quantum Finance Challenge.
-      </p>
-
-      <Metrics items={[
-        ['Classical probability', '0.05000'],
-        ['Quantum estimate', '0.04972'],
-        ['Absolute error', '0.00028'],
-        ['Relative error', '0.56%']
-      ]} />
-
-      <h3>Classical vs. quantum estimation</h3>
-
-      <Plot
-        n={6}
-        alt="Classical reference 0.05000 and QAE estimate 0.04972"
-      />
-
-      <h3>Theoretical query complexity</h3>
-
-      <Metrics items={[
-        ['Classical Monte Carlo', 'O(1/ε²)'],
-        ['Quantum amplitude estimation', 'O(1/ε)']
-      ]} />
-
-      <Plot
-        n={5}
-        alt="Theoretical scaling of classical Monte Carlo and QAE"
-      />
-
-      <p>
-        Numerical comparison of classical and quantum
-        query complexity across different precision levels.
-      </p>
-
-
-      {/* ========================================
-          EXTENDED QUANTUM SIMULATION
-      ======================================== */}
-
-      <hr style={{
-        border: 0,
-        borderTop: '1px solid var(--line)',
-        margin: '40px 0'
-      }} />
-
-      <h3>Extended Quantum Simulation</h3>
-
-      <p>
-        A follow-up experiment conducted after the hackathon
-        using Iterative Quantum Amplitude Estimation (IQAE)
-        in Qiskit with a statevector-based simulator.
+        Iterative Quantum Amplitude Estimation (IQAE)
+        implemented in Python using Qiskit and a
+        statevector-based simulator.
       </p>
 
       <h3>Quantum state preparation</h3>
 
       <p>
         The reference probability of 0.05 is encoded into
-        a single-qubit state using an RY rotation.
+        a single-qubit quantum state using an RY rotation.
       </p>
 
       <Metrics items={[
@@ -254,7 +299,7 @@ export default function QuantumResults() {
       <h3>Quantum estimation results</h3>
 
       <Metrics items={[
-        ['Classical probability', '0.05000000'],
+        ['Reference probability', '0.05000000'],
         ['Quantum estimate', '0.04997869'],
         ['Absolute error', '0.00002131'],
         ['Relative error', '0.0426%'],
@@ -272,66 +317,61 @@ export default function QuantumResults() {
       <figure className="junction-plot">
         <img
           src={`${base}quantum_estimation.png`}
-          alt="IQAE estimate with 95 percent confidence interval and classical reference probability"
+          alt="IQAE probability estimate with 95 percent confidence interval"
           loading="lazy"
         />
       </figure>
 
-      <h3>Comparison of quantum experiments</h3>
 
-      <div className="model-comparison">
-        <table className="results-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>Junction 2026</th>
-              <th>Follow-up</th>
-            </tr>
-          </thead>
+      {/* ========================================
+          COMPUTATIONAL COMPLEXITY
+      ======================================== */}
 
-          <tbody>
-            <tr>
-              <td>Reference probability</td>
-              <td>0.05000</td>
-              <td>0.05000</td>
-            </tr>
+      <SectionDivider />
 
-            <tr>
-              <td>Quantum estimate</td>
-              <td>0.04972</td>
-              <td>0.04997869</td>
-            </tr>
+      <h3>Theoretical Query Complexity</h3>
 
-            <tr>
-              <td>Absolute error</td>
-              <td>0.00028</td>
-              <td>0.00002131</td>
-            </tr>
+      <Metrics items={[
+        ['Classical Monte Carlo', 'O(1/ε²)'],
+        ['Quantum amplitude estimation', 'O(1/ε)']
+      ]} />
 
-            <tr>
-              <td>Relative error</td>
-              <td>0.56%</td>
-              <td>0.0426%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <Plot
+        n={5}
+        alt="Theoretical query complexity of classical Monte Carlo and quantum amplitude estimation"
+      />
+
+      <p>
+        Numerical comparison of classical and quantum
+        query complexity across different precision levels,
+        implemented in R.
+      </p>
+
+
+      {/* ========================================
+          KEY FINDINGS
+      ======================================== */}
+
+      <SectionDivider />
 
       <h3>Key findings</h3>
 
       <p>
-        Both quantum estimates closely matched the classical
-        reference probability. The follow-up simulation produced
-        a smaller estimation error, with the reference probability
-        falling within the estimated 95% confidence interval.
+        Bayesian risk modelling produced a 95% VaR of −2.33%
+        and a CVaR of −2.93%.
       </p>
 
       <p>
-        The follow-up experiment uses a known probability encoded
-        into a single-qubit state. It demonstrates amplitude
-        estimation rather than an end-to-end quantum implementation
-        of Bayesian financial risk modelling. A practical quantum
-        advantage was not established.
+        Classical and quantum probability estimates were
+        nearly identical, with a relative difference of
+        only 0.0426%.
+      </p>
+
+      <p>
+        Although quantum amplitude estimation has a theoretical
+        advantage in computational complexity, the results
+        did not demonstrate a practical efficiency advantage
+        over classical Monte Carlo.
       </p>
 
     </div>
