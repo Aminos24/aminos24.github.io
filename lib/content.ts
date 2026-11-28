@@ -1,4 +1,3 @@
-
 export const profile = {
   name: 'Amin Mahad',
   email: 'aminmahadd@gmail.com',
@@ -79,12 +78,10 @@ export const projects = [
         'Objective',
         'I developed this project independently during the Junction 2026 hackathon as part of the OP Quantum Finance Challenge. The objective was to explore the potential of quantum amplitude estimation in Bayesian financial risk assessment and compare it with classical probability estimation.'
       ],
-
       [
         'Methodology',
         'Bayesian risk modelling using MCMC and the No-U-Turn Sampler (NUTS) in Stan, combined with Iterative Quantum Amplitude Estimation (IQAE) in Qiskit.'
       ],
-
       [
         'Results',
         'Posterior distributions, convergence diagnostics, financial risk estimates and classical versus quantum probability estimation.'
@@ -123,6 +120,43 @@ export const projects = [
       [
         'Results',
         'The nonlinear model achieved an in-sample classification accuracy of 71.2%, compared with 70.9% for the linear model. LOO-CV favoured the nonlinear model, while the linear model offered greater simplicity and robustness to prior choice.'
+      ]
+    ]
+  },
+
+  {
+    slug: 'electricity-forecasting',
+    number: '04',
+    category: 'Independent project · Time Series Analysis',
+    title: 'Electricity Consumption Forecasting',
+
+    summary: 'Analysing and forecasting electricity consumption in Finland using ARIMA and SARIMA models.',
+
+    methods: [
+  'R',
+  'Time Series',
+  'ARIMA',
+  'SARIMA'
+],
+
+    pdf: '',
+
+    sections: [
+      [
+        'Objective',
+        'The aim of this project was to apply methods learned during my Time Series Analysis course to Finnish electricity consumption data and explore daily, weekly and annual seasonal patterns.'
+      ],
+      [
+        'Methodology',
+        'Hourly electricity consumption data from Fingrid was analysed using MSTL decomposition, ACF, PACF and differencing. ARIMA and SARIMA models were fitted using data from 2019 to 2024.'
+      ],
+      [
+        'Results',
+        'Forecast accuracy was evaluated over 24-hour and 168-hour horizons. SARIMA captured daily seasonal patterns better, while ARIMA achieved lower forecast errors during the evaluated period.'
+      ],
+      [
+        'Limitations',
+        'Forecast accuracy was evaluated during the first week of January 2025. Residual autocorrelation remained in both models, and external variables such as temperature and public holidays were not included.'
       ]
     ]
   }
@@ -269,6 +303,77 @@ export const diabetesResults = {
   warmup: 1000,
 
   paretoK: '< 0.7'
+};
+
+
+/* ========================================
+   ELECTRICITY FORECASTING PROJECT RESULTS
+======================================== */
+
+export const electricityResults = {
+
+  source: 'Fingrid Open Data',
+  period: '2019–2025',
+
+  originalObservations: 128462,
+  hourlyObservations: 61368,
+
+  trainingObservations: 52608,
+  testObservations: 8760,
+
+  trainingPeriod: '2019–2024',
+  testPeriod: '2025',
+  evaluationPeriod: '1–7 January 2025',
+
+  seasonalPeriods: {
+    daily: 24,
+    weekly: 168,
+    annual: 8766
+  },
+
+  models: {
+    arima: 'ARIMA(1,1,0)',
+    sarima: 'SARIMA(1,1,0)(0,1,1)[24]'
+  },
+
+  forecasts: [
+    {
+      horizon: '24 hours',
+      model: 'ARIMA',
+      mae: 390.38,
+      rmse: 467.75
+    },
+    {
+      horizon: '24 hours',
+      model: 'SARIMA',
+      mae: 726.01,
+      rmse: 807.98
+    },
+    {
+      horizon: '168 hours',
+      model: 'ARIMA',
+      mae: 613.80,
+      rmse: 745.92
+    },
+    {
+      horizon: '168 hours',
+      model: 'SARIMA',
+      mae: 780.49,
+      rmse: 901.11
+    }
+  ],
+
+  github: 'https://github.com/Aminos24/finland-electricity-forecasting',
+
+  plots: {
+    dailyConsumption: '/images/electricity/daily_consumption.png',
+    hourlyProfile: '/images/electricity/hourly_profile.png',
+    weeklyProfile: '/images/electricity/weekly_profile.png',
+    monthlyProfile: '/images/electricity/monthly_profile.png',
+    decomposition: '/images/electricity/decomposition.png',
+    forecast24h: '/images/electricity/forecast_24h.png',
+    forecast168h: '/images/electricity/forecast_168h.png'
+  }
 };
 
 

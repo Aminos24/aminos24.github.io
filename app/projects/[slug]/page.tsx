@@ -1,9 +1,9 @@
-
 import { projects } from '../../../lib/content';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 import ProjectResults from '../../../components/ProjectResults';
+import ElectricityResults from '../../../components/ElectricityResults';
 
 import QuantumResults, {
   QuantumPortfolio,
@@ -99,6 +99,13 @@ export default async function Project({
           {p.slug === 'diabetes' &&
             title === 'Results' && (
               <ProjectResults />
+            )}
+
+          {/* Electricity forecasting project results */}
+
+          {p.slug === 'electricity-forecasting' &&
+            title === 'Results' && (
+              <ElectricityResults />
             )}
 
         </section>
